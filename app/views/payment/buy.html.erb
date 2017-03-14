@@ -1,0 +1,12 @@
+<h2 class="big"><%= t('.title') %></h2>
+<div class="buying">
+  <p><%= t('.description')%></p>
+  <div class="inner">
+    <%= render 'gebotspaket', :size => 10,  :number => 1 %>
+    <%= render 'gebotspaket', :size => 20,  :number => 2 %>
+    <%= render 'gebotspaket', :size => 30,  :number => 3 %>
+    <%= render 'gebotspaket', :size => 50,  :number => 4 %>
+    <%= render 'gebotspaket', :size => 100, :number => 5 %>
+    <div class="clear"></div>
+  </div>
+</div>

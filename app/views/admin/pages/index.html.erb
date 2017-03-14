@@ -1,0 +1,30 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active first"><%= link_to 'Alle Seiten', admin_pages_path %></li>
+      <li><%= link_to 'Neue Seite erstellen', new_admin_page_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Alle Seiten</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th></th>
+        </tr>
+        <%for page in @pages %>
+          <tr>
+            <td><%= page.try(:name) %></td>
+            <td><%= page.try(:title) %></td>
+            <td><%= link_to 'Zeigen', admin_page_path(page) %>, 
+            <%= link_to 'Bearbeiten', edit_admin_page_path(page) %>,
+            <%= link_to 'Löschen', admin_page_path(page),
+            :confirm => 'Seite wirklich löschen?', :method => :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

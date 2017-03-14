@@ -1,0 +1,27 @@
+<div class="payment_information" style="border-top: 1px solid #303030; padding-top:25px">
+  <% if auction.state != Auction.READY_TO_SHIP && auction.state != Auction.CLOSED %>
+  Bitte Überweisen sie den Betrag von <%= number_to_currency auction.total %> mit  Verwendungszweck : <%= auction.accounting_code %> an:
+  <div style="font-size:13px">
+    <br /><b>
+    Kontoinhabber: </b> FashionFly GmbH
+    <br />
+    <b>Kontonummer: </b> 90386186<br />
+    <b>Bankleitzahl: </b> 20750000<br />
+    <b>Bank: </b> Sparkasse Harburg Buxtehude<br />
+    <br />
+    <br />
+    <b>IBAN: </b> DE30 2075 0000 0090 3861 86 <br />
+    <b>BIC-/SWIFT-Code: </b>NOLADE21HAM <br />
+  </div>
+  <div style="margin-top: 10px; font-size:12px;">
+    Oder ganz einfach und schnell über Paypall EXPRESS bezahlen.<br /> 
+    <%= link_to  image_tag("https://www.paypal.com/de_DE/i/btn/btn_xpressCheckout.gif"), paypal_auctions_path(:code => auction.accounting_code) %> 
+  </div>
+  <% else %>
+    <% if auction.state == Auction.READY_TO_SHIP %>
+      Bestellvorgan ist in Arbeit.
+    <% else %>
+      Bestellvorgang ist Abgeschlossen. Ware verschickt.
+    <% end %>
+  <% end %>
+</div> 

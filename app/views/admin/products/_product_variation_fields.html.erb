@@ -1,0 +1,9 @@
+<div class="group fields">
+  <%= f.collection_select :variation_group_id, VariationGroup.all, :id, :translated_name %>
+  <%= f.text_field :value %>
+  <%= link_to_remove_fields image_tag('delete.png'), 
+                            f, 
+                            :alt => "Lösch Produkt bild", 
+                            :title => "Lösch Produkt bild" %>
+
+</div>

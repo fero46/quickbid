@@ -1,0 +1,28 @@
+<%= form_for [:admin, page] , :html => {:class=> 'form'} do |f| %>
+  <% unless page.errors.blank? %>
+    <div class="flash">
+    <% page.errors.full_messages.each do |msg| %>
+        <div class="message error"><p><%= msg %></p></div>
+    <% end %>
+    </div>
+  <% end %>
+  <div class="group">
+    <%= f.label :name , :class => "label" %>
+    <%= f.text_field :name, :class => "text_field" %>
+  </div>
+  <div class="group">
+    <%= f.label :title, :class => "label" %>
+    <%= f.text_field :title, :class => "text_field" %>
+  </div>
+  <div class="group">
+    <%= f.label :body, :class => "label" %>
+    <%= f.text_area :body, :class => "text_area tinymce", :rows => 40, :cols => 120 %>
+  </div>
+  <div class="group navform wat-cf">
+    <button class="button">
+      <%= image_tag 'web-app-theme/icons/tick.png'%>
+      Seite speichern
+    </button>
+  </div>
+<% end %>
+<%= tinymce %>

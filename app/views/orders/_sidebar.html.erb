@@ -1,0 +1,7 @@
+<div class="sidebar">
+    <%= render 'payment_details', auction: @auction %>
+
+    <% @noscript=true %>
+    <%= render @auction, auction_counter: 3 %>
+    <div class="clear"></div>
+</div>

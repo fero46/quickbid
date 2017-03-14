@@ -1,0 +1,17 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Bestellung</h2>
+    <div class="inner">
+      <%= form_for [:admin, @order] do |f| %>
+        Status der Bestellung <%= @order.auction.accounting_code %>
+        <%= f.fields_for :auction do |auction| %>
+          <%= auction.select(:state, options_for_select(Auction.states, :selected => @order.auction.state)) %>
+        <% end %>
+        <%= f.submit %>
+      <% end %> 
+    </div>
+  </div>
+</div>

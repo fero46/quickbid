@@ -1,0 +1,6 @@
+<div class="select_wrapper">
+  <%= f.hidden_field :group_name %>
+  <label><%= I18n.t ("variation_group.#{f.object.group_name}") %></label>
+  <%= f.collection_select :value, @auction.variation_values(f.object.group_name), :value, :value, :include_blank => true %>
+  <div class="clear"></div>
+</div>

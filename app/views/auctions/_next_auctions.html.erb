@@ -1,0 +1,8 @@
+<div class="next_auctions">
+  <h2><%= t('.next_auction') %></h2>
+  <h3><%= t('.dayli') %></h2>
+  <div class="grey_box">
+    <%= render partial: "auctions/next_auction", collection: Auction.next_auctions %>
+    <div class="clear"></div>
+  </div>
+</div>

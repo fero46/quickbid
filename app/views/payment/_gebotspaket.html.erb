@@ -1,0 +1,11 @@
+<div class="gebotspaket <%= size==100 ? 'last': '' %>">
+  <div class="price">
+    <%= number_to_currency(size * 0.5) %>
+  </div>
+  <div class="box">
+    <%= size %><br/>
+    <%= t ('.gebote') %>
+  </div>
+  <%= link_to 'Kaufen', paypal_buy_path(option: number), class: 'link' %>
+</div>
+  

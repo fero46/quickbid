@@ -1,0 +1,72 @@
+<%= form_for [:admin, auction], :html => {:class=> 'form'} do |f| %>
+  <% unless auction.try(:errors).try(:blank?) %>
+    <div class="flash">
+      <% auction.errors.full_messages.each do |msg| %>
+        <div class="message error"><p><%= msg %></p></div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="group">
+    <%= f.hidden_field :product_id %>
+
+    <a href="#select" id="selectProduct" >Produkt Auswählen</a>
+    <div class="products">
+      <div class="myprod">
+        <% if auction && auction.product %>
+          <%= image_tag auction.product.try(:product_images).try(:first).try(:image).try(:thumb)%>
+          <span id="product_brand"><%= auction.product.try(:brand) %></span>
+          <span id="product_brand"><%= auction.product.try(:short_description) %></span>
+          <span id="product_brand"><%= auction.product.try(:price) %></span>
+        <% else %>
+            <span><%= t('.select_product') %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="group"> 
+    <%= f.label :start, :class => "label" %>
+    <%= f.datetime_select :start, :class => "datetime_select" %>
+  </div>
+  <div class="group"> 
+    <%= f.label :end, :class => "label" %>
+    <%= f.datetime_select :end, :class => "datetime_select" %>
+  </div>
+
+
+    <div class="group"> 
+      <%= f.label :deactivate_bots, :class => "label" %>
+      <%= f.check_box :deactivate_bots, :class => "check_box" %>
+    </div>
+
+  <div class="group navform wat-cf">
+    <button class="button">
+      <%= image_tag 'web-app-theme/icons/tick.png'%>
+      Autkion 
+      <% if auction.new_record? %>
+        erstellen
+      <% else %>
+        bearbeiten
+      <% end%>
+    </button>
+  </div>
+<% end %>
+
+<%= content_for :popup do %>
+<div id="productSelectPopup">
+  <div class="form">
+    <div class="group">
+      <label class="label">Produktsuche</label>
+      <input id="search" type="text" class="input_field"></a>
+      <button id="searchbutton">Suchen</button>
+      <input id="search_hidden" type="hidden" />
+    </div>
+    <div class="products" id="productselectionfield">
+    </div>
+    <div class="pagination">
+    </div>
+
+  </div>
+  <a href="#close" id="close_button"><%= image_tag 'close.png' %></a>
+</div>
+<% end %>

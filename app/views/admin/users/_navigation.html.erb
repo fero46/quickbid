@@ -1,0 +1,7 @@
+<ul class="wat-cf">
+  <li class="<%= current_navigation[:index] %> first"><%= link_to 'Benutzeransicht', admin_users_path %></li>
+  <% if current_navigation[:show].present? || current_navigation[:edit].present? %>
+    <li class="<%= current_navigation[:show] %>"><%= link_to 'Benutzer Zeigen', admin_user_path(@user) %></li>
+    <li class="<%= current_navigation[:edit] %>"><%= link_to 'Benutzer Bearbeiten', edit_admin_user_path(@user) %></li>
+  <% end %>
+</ul>

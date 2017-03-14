@@ -1,0 +1,31 @@
+@import "color";
+.dezent{
+  font-size: 18px;
+  font-weight: 200;
+  margin-bottom: 40px;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
+
+table.luckloser{
+  width:100%;
+  font-size: 18px;
+  border-collapse:collapse;
+  margin-bottom: 50px;
+  th{
+    font-size: 48px;
+    font-weight: 200;
+    text-align: left;
+    border-bottom:  1px solid $light_red;
+    margin-bottom: 10px;
+  }
+  td{
+    font-weight: 300;
+    padding:15px;
+  }
+  .even{
+    background-color: $light_red;
+    color:white;
+  }
+}

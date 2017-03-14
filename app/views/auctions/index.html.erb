@@ -1,0 +1,9 @@
+<%= render 'utils/title', :title => t('.title') %>
+<div class="clear"></div>
+<div class="actionpanel">
+  <%= paginate @auctions %>
+</div>
+<%= render 'auctions/auctions', auctions: @auctions  %>
+<div class="actionpanel">
+  <%= paginate @auctions %>
+</div>

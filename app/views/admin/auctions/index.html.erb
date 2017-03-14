@@ -1,0 +1,34 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Alle Auktionen</h2>
+    <div class="inner">
+        <% if @auctions.present? %>
+        <table class="table">
+          <tr>
+            <th></th>
+            <th>Start</th>
+            <th>Ende</th>
+            <th></th>
+          </tr>
+            <%for auction in @auctions %>
+            <tr>
+              <td><%= image_tag auction.try(:product).try(:product_images).try(:first).try(:image).try(:thumb)%></td>
+              <td><%=  l auction.try(:start), format: :short %></td>
+              <td><%=  l auction.try(:end), format: :short %></td>
+              <td><%= link_to 'Anzeigen', admin_auction_path(auction) %><br/>
+                  <%= link_to 'Bearbeiten', edit_admin_auction_path(auction)%><br/>
+                  <%= link_to 'Im Frontend zeigen', auction_path(auction)%>
+              </td>
+            </tr>
+            <% end %>
+        </table>     
+        <%= paginate @auctions %>
+      <% else %>
+        Keine Auktionen
+      <% end %>
+    </div>
+  </div>
+</div>

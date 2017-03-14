@@ -1,0 +1,12 @@
+<div class="page">
+<h2>Vielen Dank für Deinen Einkauf</h2>
+<p> Wir wünschen dir viel Spaß. </p>
+<p>
+  <%= link_to 'Zurück zur Startseite', root_path, :class => 'link' %>
+</p>
+  <%  if Rails.env == "jihi" %>
+    <img src="http://ads.admized.com/adtrack.php?id=92&<%= @options%>" border="0" width="1" height="1" alt="">
+  <% elsif Rails.env == "staging" %>
+    http://ads.admized.com/adtrack.php?id=92&<%= @options%>
+  <% end %>
+</div>

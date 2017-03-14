@@ -1,0 +1,37 @@
+<h2 class="big"><%= t('.sign_in') %></h2>
+<div class="user_form">
+  <% if Settings.page.configuraton.girls %>
+    <%= image_tag 'sidegirl_signin.png', :id => "stoerer2" %>
+  <% end %>
+  <p class="action_call"><%= t('.call_to_action_1') %></p>
+  <div class="content_form">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form'}) do |f| %>
+      <% if flash.present? %>
+        <div id="error_explanation">
+          <ul>
+          <% flash.each do |type, message| -%>
+            <li class="message <%= type %>">
+              <%= message %>
+            </li>
+          <% end -%>
+          </ul>
+        </div>
+      <% end %>
+      <div><%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true %></div>
+
+      <div><%= f.label :password %>
+      <%= f.password_field :password %></div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me, :class=>"checkbox" %> <%= f.label :remember_me, :class => "checkbox_label" %></div>
+        <br />
+      <% end -%>
+
+      <div><%= f.button t(".sign_in"), :class=>"button" %></div>
+    <% end %>
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
+  <div class="clear"></div>
+</div>

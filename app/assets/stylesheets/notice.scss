@@ -1,0 +1,8 @@
+@import "color";
+
+.notice_box{
+  border: 1px solid $light_red;
+  padding: 15px;
+  margin: 100px 50px;
+  background: lighten($light_red, 30%);
+}

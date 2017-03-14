@@ -1,0 +1,14 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active first"><%= link_to 'Alle Seiten', admin_pages_path %></li>
+      <li><%= link_to 'Neue Seite erstellen', new_admin_page_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Seiten Bearbeiten</h2>
+    <div class="inner">
+      <%= render 'form', :page => @page %>  
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<h2 class="big"><%= t('.forgot') %></h2>
+<div class="user_form">
+  <p class="action_call"><%= t('.call_to_action_1') %></p>
+  <p class="action_call"><%= t('.call_to_action_2') %></p>
+  <div class="content_form">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post , :class => "form"}) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true %>
+
+      <%= f.button t(".submit"), :class => "button" %>
+    <% end %>
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
+<div class="clear"></div>
+</div>

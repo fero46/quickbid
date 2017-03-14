@@ -1,0 +1,16 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to 'Alle Kategorien', admin_categories_path %></li>
+      <li><%= link_to 'Neues Kategorie herstellen', new_admin_category_path %></li>
+      <li class="active"><%= link_to 'Kategorie Ansicht', admin_category_path(@category) %></li>
+      <li><%= link_to "Kategorie bearbeiten", edit_admin_category_path(@category) %></li>
+    </ul>
+  </div>
+  <div class="content">
+  <h2><%= @category.name %></h2>
+  <div class="inner">
+    <%= image_tag @category.image.thumb %>
+  </div>
+</div>
+</div>

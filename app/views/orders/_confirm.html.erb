@@ -1,0 +1,12 @@
+<%= render 'compact_info', order: order , auction: auction %>
+<%= form_for [auction, order], url: auction_order_path(auction), html:{class: 'form'} do |f| %>
+<input type="hidden" name="update" value="true" />
+<table>
+  <tr>
+    <td width="230px"><%= link_to t('.edit'), edit_auction_order_path(auction), class: 'formbutton' %></td>
+    <td width="230px"  style="text-align:center"><%= link_to t('.reset'), new_auction_order_path(auction), class: 'formbutton' %></td>
+    <td width="230px" style="text-align:right"><%= f.button t('.confirm'), class: 'button' %></td>
+  </tr>
+</table>
+<% end %>
+

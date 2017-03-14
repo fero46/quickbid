@@ -1,0 +1,50 @@
+# config/application.yml
+defaults: &defaults
+  company:
+    name: FashionFly GmbH
+    address: Dorfstr. 1, 21423 Lübeck, Schleswig-Holstein, Germany
+    responsible: Ferhat Ziba, Firat Ziba
+    tel: 0190 331 331
+    fax: 123 331 331
+    mail: serivce@fashionfly.de
+  claim: HighTech zu tief fliegenden Preisen.
+  url: jihi.de
+  pagestyle: jihi
+  analytics: false
+  title: Jihi
+  mailer_from: dummy@dummy.com
+  twitter: jihi
+  page:
+    configuraton:
+      banner: true
+      banner_image: tophead_jihi.png
+      girls: false
+      site_verification: "fasfasdf"
+      google_id: "fasfsdfa"
+      google_domain: "jihi.de"
+      dummy: value
+      logo: logo_jihi.png
+      special_class: special_blue
+      home: home_blue.png
+      facebook: Jihi.deutschland
+  paypal:
+    mail: test@jihi.de
+    cert_id: ....
+    url: https://www.sandbox.paypal.com/cgi-bin/webscr?
+    paypal_cert: paypal_cert_staging.pem
+    certs_name_key: app_key.pem
+    certs_name_pem: app_cert.pem
+  payment:
+    secret: MY_RANDOM_SECRET_4329048203948
+
+development:
+  <<: *defaults
+    
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

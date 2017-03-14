@@ -1,0 +1,41 @@
+<div class="block">
+  <div class="secondary-navigation">
+      <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Auktionsdetails</h2>
+    <div class="inner">
+      <p>
+      <%= link_to 'Im Frontend', auction_path(@auction)%>
+      </p>
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Detail</th>
+          <th>Gewonnen</th>
+          <th>Lieferinformation</th>
+        </tr>
+        <tr>
+          <td><%=image_tag @auction.product.product_images.first.image.thumb %></td>
+          <td><%= link_to 'Produkt Details', admin_product_path(@auction.product) %></td>
+          <td><%= winners_user_name @auction %></td>
+          <td><%= order_path_if_exists @auction %></td>
+        </tr>
+      </table>
+
+      <table class="table">
+        <tr>
+          <th>Besucher</th>
+          <th>Gebote</th>
+          <th>Status</th>
+          <th>Einnahmen</th>
+        </tr>
+        <tr>
+          <td><%= @auction.try(:visits) %></td>
+          <td><%= @auction.try(:bids) %></td>
+          <td><%= @auction.try(:state) %></td>
+          <td><%= number_to_currency (@auction.try(:intern_bids) * 0.5) %></td>
+        </tr>
+      </table>
+    </div>
+</div>

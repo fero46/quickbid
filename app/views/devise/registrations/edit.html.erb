@@ -1,0 +1,39 @@
+<h2 class="big">Deine Einstellung</h2>
+
+<%= link_to "Zurück", :back , class:'link' %>
+<br />
+<br />
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class=>'form' }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %>
+    <%= f.email_field :email, :autofocus => true %>
+    <% if resource.class.reconfirmable && resource.unconfirmed_email.present? %>
+      <span style="font-size:11px; margin-top:-15px; margin-bottom:15px; display:block">
+        Warte auf Bestätigung für folgende E-Mail Adresse: <%= resource.unconfirmed_email %>
+      </span>
+    <% end %>
+  </div>
+  <div>
+    <label for="user_password">Passwort <i>(Lass es leer, wenn du dein Passwort nicht ändern willst.)</i></label>
+    <%= f.password_field :password, :autocomplete => "off" %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <label for="user_current_password">Aktuelles Passwort <i>(Dein Aktuelles Password wird benötigt um Änderungen zu übernehmen)</i></label>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div><%= f.button "Update",  :class => 'button'%></div>
+<% end %>
+<br/>
+<h2 class="big">Datenlöschen Löschen</h2>
+
+<p>Nicht mehr glücklich ? <%= link_to "Meine Daten löschen", registration_path(resource_name), :data => { :confirm => "Beim Löschen deiner Daten, können laufende bestellvorgänge so wie Gebotsguthaben nicht mehr berücksichtig werden. Wirklich löschen." }, :method => :delete, :class => 'link' %>.</p>
+

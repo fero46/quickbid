@@ -1,0 +1,9 @@
+<ul class="wat-cf">
+  <li class="<%= current_navigation[:index] %> first"><%= link_to 'Offene Bestellung', admin_orders_path %></li>
+  <li class="<%= current_navigation[:payed] %>"><%= link_to 'Bezahlte Bestellung', admin_orders_path(payed:true) %></li>
+  <li class="<%= current_navigation[:send] %>"><%= link_to 'Abgeschlossene Bestellung', admin_orders_path(send:true) %></li>
+  <% if current_navigation[:show].present? || current_navigation[:edit].present? %>
+    <li class="<%= current_navigation[:show] %>"><%= link_to 'Auktion Zeigen', admin_order_path(@order) %></li>
+    <li class="<%= current_navigation[:edit] %>"><%= link_to 'Auktion Status Ändern', edit_admin_order_path(@order) %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,8 @@
+== Jihi
+
+Simple Liveauction system written in Ruby on Rails
+
+Not supported.
+
+
+--- System is live at jihi.de

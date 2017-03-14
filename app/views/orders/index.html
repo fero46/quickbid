@@ -1,0 +1,24 @@
+<% if @orders.present? %>
+<table class="table">
+  <tr>
+    <th></th>
+    <th>Datum</th>
+    <th>Auktion</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  <% for order in @orders %>
+  <tr>
+    <td><%= image_tag order.try(:auction).try(:product).try(:product_images).try(:first).try(:image).try(:thumb) %></td>
+    <td><%= l order.try(:auction).try(:end), format: :short %></td>
+    <td><%= order.try(:auction).try(:product).try(:short_description) %></td>
+    <td><%= decode_order_status order.try(:auction).try(:state) %></td>
+    <td><%= link_to t('.show'), auction_order_path(order.try(:auction)), class: 'link' %></td>
+  </tr>
+  <% end %>
+</table>
+<%= paginate @orders %>
+
+<% else %>
+  <h2>Keine Bestellungen vorhanden</h2>
+<% end %>

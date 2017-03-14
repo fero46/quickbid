@@ -1,0 +1,85 @@
+de:
+  errors:
+    messages:
+      expired: "ist abgelaufen, bitte neu anfordern"
+      not_found: "nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt"
+      not_locked: "ist nicht gesperrt"
+      not_saved:
+        one: "Registrierung fehlgeschlagen: ein Fehler."
+        other: "Registrierung fehlgeschlagen: %{count} Fehler."
+ 
+  devise:
+    failure:
+      already_authenticated: 'Du bist bereits angemeldet.'
+      unauthenticated: 'Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst.'
+      unconfirmed: 'Du musst Deinen Account bestätigen, bevor Du fortfahren kannst.'
+      locked: 'Dein Account ist gesperrt.'
+      invalid: 'Ungültige Anmeldedaten.'
+      invalid_token: 'Der Anmelde-Token ist ungültig.'
+      timeout: 'Deine Sitzung ist abgelaufen, bitte melde Dich erneut an.'
+      inactive: 'Dein Account ist nicht aktiv.'
+      user:
+        not_found_in_database: 'Email oder Passwort ist fehlerhaft.'
+    sessions:
+      signed_in: 'Erfolgreich angemeldet.'
+      signed_out: 'Erfolgreich abgemeldet.'
+      new:
+        sign_in: Anmelden
+        call_to_action_1: "Bitte gib hier deine Zugangsdaten ein:"
+    passwords:
+      send_instructions: 'Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen kannst.'
+      updated: 'Dein Passwort wurde geändert. Du bist jetzt angemeldet.'
+      updated_not_active: 'Dein Passwort wurde geändert.'
+      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen können."
+      edit:
+        call_to_action_1: "Dein Pssswort vergessen ?"
+        call_to_action_2: "Ändere jetzt für FashionFly dein Passwort."    
+      new:
+        forgot: "Passwort vergessen"
+        call_to_action_1: "Passwort vergessen ? Bitte trag deine E-Mail Adresse ein."
+        call_to_action_2: "Nach dem du deine E-Mail-Adresse abgesendet hast, schicken wir dir eine Anleitung, wie du dein Passwort zurücksetzt"
+        submit: "Absenden"
+    confirmations:
+      send_instructions: 'Du erhältst in wenigen Minuten eine E-Mail, mit der Du Deine Registrierung bestätigen kannst.'
+      send_paranoid_instructions: 'Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Du Deine Registrierung bestätigen kannst.'
+      confirmed: 'Vielen Dank für Deine Registrierung. Du bist jetzt angemeldet.'
+    registrations:
+      signed_up: 'Du hast dich erfolgreich registriert.'
+      signed_up_but_unconfirmed: 'Du hast Dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account noch nicht bestätigt ist. Du erhältst in Kürze eine E-Mail mit der Anleitung, wie Du Deinen Account freischalten kannst.'
+      signed_up_but_inactive: 'Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account inaktiv ist.'
+      signed_up_but_locked: 'Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account gesperrt ist.'
+      updated: 'Deine Daten wurden aktualisiert.'
+      update_needs_confirmation: "Deine Daten wurden aktualisiert, aber Du musst Deine neue E-Mail-Adresse bestätigen. Du erhälsts in wenigen Minuten eine E-Mail, mit der Du die Änderung Deiner E-Mail-Adresse abschließen kannst."
+      destroyed: 'Dein Account wurde gelöscht.'    
+      new:
+        sign_up: Registrieren
+        call_to_action_1: "Registriere dich jetzt <span class='red'>KOSTENLOS</span> auf FashionFly."
+        call_to_action_2: "FashionFly ist die erste Auktionsplatform für Luxus-Artikel für Frauen."
+        mini_title: "DEINE VORTEILE"
+        register_free: "Kostenlos Anmelden"
+        register_free_description: "Die Anmeldung ist kostenlos und völlig unverbindlich."
+        free_bids: "3 Freigebote erhalten"
+        free_bids_description: "Du erhälts 3 Freigebote für deinen Start bei FashionFly."
+        bid_now: "Sofort mitbieten"
+        bid_now_description: "Du kannst sofort mitbieten und deine erste Auktion gewinnen."
+    unlocks:
+      send_instructions: 'Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Deinen Account entsperren können.'
+      unlocked: 'Dein Account wurde entsperrt. Du bist jetzt angemeldet.'
+      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Deinen Account entsperren kannst."
+    omniauth_callbacks:
+      success: 'Du hast Dich erfolgreich mit Deinem %{kind}-Account angemeldet.'
+      failure: 'Du konntest nicht Deinem %{kind}-Account angemeldet werden, weil "%{reason}".'
+    shared:
+      links:
+        sign_up: Jetzt kostenlos registrieren.
+        sign_in: Jetzt Anmelden.
+        forgot: "Dein Passwort vergessen ?"
+        no_confirmation: "Keine Bestätigungsmail erhalten ?"
+    mailer:
+      confirmation_instructions:
+        subject: 'Jihi - Anleitung zur Bestätigung Deines Accounts'
+      reset_password_instructions:
+        subject: 'FashionFly - Anleitung um Dein Passwort zurückzusetzen'
+      unlock_instructions:
+        subject: 'FashionFly - Anleitung um Deinen Account freizuschalten'

@@ -1,0 +1,11 @@
+<div class="block">
+  <div class="secondary-navigation">
+      <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Neue Auktionskonfiguration erstellen</h2>
+    <div class="inner">
+      <%= render 'form', :auction_configuration => @auction_configuration %>
+    </div>
+  </div>
+</div>

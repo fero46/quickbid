@@ -1,0 +1,17 @@
+@import "color";
+
+table.table{
+  border-collapse: collapse;
+  width:100%;
+  tr{
+    th{
+      background: $light_red;
+      color:white;
+      font-weight: 200;
+    }
+    td{
+      padding-right: 20px;
+      border-bottom: 1px solid $light_red;
+    }
+  }
+}

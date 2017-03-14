@@ -1,0 +1,37 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to 'Alle Kategorien', admin_categories_path %></li>
+      <li class="active"><%= link_to 'Neues Kategorie herstellen', new_admin_category_path %></li>
+    </ul>
+  </div>
+  <div class="content form">
+    <h2>Neues Kategorie erstellen</h2>
+    <div class="inner">
+    <%= form_for [:admin, @category] , :html => {:class=> 'form'} do |f| %>
+      <% unless @category.errors.blank? %>
+        <div class="flash">
+        <% @category.errors.full_messages.each do |msg| %>
+            <div class="message error"><p><%= msg %></p></div>
+        <% end %>
+        </div>
+      <% end %>
+      <div class="group">
+        <%= f.label :name , :class => "label" %>
+        <%= f.text_field :name, :class => "text_field" %>
+      </div>
+      <div class="group">
+        <%= f.label :image, :class => "label" %>
+        <%= f.file_field :image, :class=>"file_field" %>
+      </div>
+      <div class="group navform wat-cf">
+        <button class="button">
+          <%= image_tag 'web-app-theme/icons/tick.png'%>
+          Kategorie erstellen
+        </button>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+

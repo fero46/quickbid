@@ -1,0 +1,20 @@
+<div class="navigation_menu">
+  <ul class="navigation">
+    <li class="first"><%= link_to(image_tag(Settings.page.configuraton.home), root_path) %></li>
+    <% for category in Category.toplevel %>
+      <li> <%= link_to category.category_name, 
+                       category_path(category.name),
+                       :class => (@category && @category.same_category(category)? 'selected top_categories':'top_categories') %>
+            <ul class="subcategory">
+              <% for mysubcat in category.subcategories %>
+                <li>  <%= link_to mysubcat.category_name, 
+                                  category_path(mysubcat.name),
+                                  :class => (@category && @category.same_category(mysubcat)? 'selected':'') %>
+                </li>
+              <% end %>
+            </ul>
+        </li>
+      <% end %>
+    </ul>
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,34 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Alle Benutzer</h2>
+    <div class="inner">
+        <h3>Insgessamt: <%= @total_count %> Benutzer </h3>
+        <% if @users.present? %>
+        <table class="table">
+          <tr>
+            <th>Email</th>
+            <th>Username</th>
+            <th>BidsAccount</th>
+            <th></th>
+          </tr>
+            <%for user in @users %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= user.username %></td>
+              <td><%= user.bid_count %></td>
+              <td><%= link_to 'Anzeigen', admin_user_path(user) %><br/>
+                  <%= link_to 'Bearbeiten', edit_admin_user_path(user)%><br/>
+              </td>
+            </tr>
+            <% end %>
+        </table>     
+        <%= paginate @users %>
+      <% else %>
+        Keine Benutzer
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<ul class="wat-cf">
+  <li class="<%= current_navigation[:index] %> first"><%= link_to 'Auktionen', admin_auctions_path %></li>
+  <li class="<%= current_navigation[:future] %>"><%= link_to 'Zukünftige Auktionen', admin_auctions_path(future:true) %></li>
+  <li class="<%= current_navigation[:past] %>"><%= link_to 'Vergangene Auktionen', admin_auctions_path(past:true) %></li>
+  <li class="<%= current_navigation[:winning] %>"><%= link_to 'Geonnen Auktionen', admin_auctions_path(winning:true) %></li>
+  <li class="<%= current_navigation[:new] %>"><%= link_to 'Neue Auktion erstellen', new_admin_auction_path %></li>
+  <% if current_navigation[:show].present? || current_navigation[:edit].present? %>
+    <li class="<%= current_navigation[:show] %>"><%= link_to 'Auktion Zeigen', admin_auction_path(@auction) %></li>
+    <li class="<%= current_navigation[:edit] %>"><%= link_to 'Auktion Bearbeiten', edit_admin_auction_path(@auction) %></li>
+  <% end %>
+</ul>

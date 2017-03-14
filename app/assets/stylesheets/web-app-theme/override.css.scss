@@ -1,0 +1,52 @@
+/* Override here any style defined by web-app-theme */
+
+@import "bourbon";
+
+.clear{
+  clear:both;
+}
+
+#productSelectPopup{
+  display: none;
+  position: absolute;
+  top:140px;
+  left:100px;
+  width:700px;
+  background: white;
+  padding:15px;
+  border: 1px solid #3c3c3c;
+  @include border-top-radius(10px);
+  @include border-bottom-radius(10px);
+  #close_button{
+    position: absolute;
+    top:15px;
+    right:15px;
+  }
+}
+
+.products{
+  .product, .myprod{
+    width:150px;
+    height:200px;
+    float:left;
+    padding:5px;  
+    margin:5px;
+    border: 1px solid #3c3c3c;
+    @include border-top-radius(3px);
+    @include border-bottom-radius(3px);
+    img{
+      display:block;
+      width:85px;
+      margin:0px auto;
+    }
+    span{
+      display:block;
+      text-align: center
+    }
+    &:hover{
+      color:white;
+      background: #3c3c3c;
+      cursor: pointer;
+    }
+  }
+}

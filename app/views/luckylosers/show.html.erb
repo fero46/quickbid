@@ -1,0 +1,29 @@
+<h2 class="big" style="margin-bottom: 0px"><%= t('.title') %></h2>
+<%= image_tag t('.banner') %>
+
+<p class="dezent"> <%= t('.description') %> </p>
+
+<% if @ranking.present? %>
+  <table class="luckloser">
+    <colgroup>
+      <col width="300">
+      <col width="300">
+      <col width="300">
+    </colgroup>
+    <tr>
+      <th>Platz</th>
+      <th>Name</th>
+      <th>Einsatz</th>
+    </tr>
+  <% count = 1 %>
+  <% for rank in @ranking %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= count %>.</td>
+      <td><%= username_resolver(rank[0]) if rank.present? && rank.size == 2 %> </td>
+      <td><%= number_to_currency(rank[1]) if rank.present? && rank.size == 2 %></td>
+    </tr>
+  <% count = count + 1 %>
+  <% end %>
+  </table>
+
+<% end %>

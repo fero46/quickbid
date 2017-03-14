@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= Settings.title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application"%>
+  <%= csrf_meta_tags %>
+
+  <% if @auction.present? %>
+  <link rel="image_src" type= "image/jpeg" href="<%= request.protocol + request.host_with_port + @auction.try(:product).try(:product_images).try(:first).try(:image).try(:default).try(:url).try(:to_s) %>" />
+  <meta name = "description" contxent = "<%= t('.claim', content: @auction.try(:product).try(:short_description)) %>"  />   
+  <meta property = "og:title" content = "<%= t('.claim', content: @auction.try(:product).try(:short_description)) %>" />
+  <meta property = "og:type"  content = "website" />
+  <meta property = "og:url"  content = "<%= auction_url(@auction)%>" />
+  <meta property = "og:image",  content ="<%= request.protocol + request.host_with_port + @auction.try(:product).try(:product_images).try(:first).try(:image).try(:default).try(:url).try(:to_s) %>" />  
+  <% end %>
+  <meta name="google-site-verification" content="<%= Settings.page.configuraton.site_verification %>" />
+</head>
+<body>
+  <div class="top_menu">
+    <div class="wrapper">
+      <ul>
+          <% unless current_user %>
+            <li><%= link_to t('links.login'), new_user_session_path %></li>
+            <li><%= link_to t('links.signup'), new_user_registration_path %></li>
+          <% else %>
+              <li><span id="bidcounter"><%= current_user.bid_count %></span> Gebote</li>
+              <li><%= link_to t('links.orders'), orders_path %></li>
+              <li><%= link_to t('links.settings'), edit_user_registration_path %></li>
+              <li><%= link_to t('links.invites'), invite_user_path %></li>
+              <li><%= link_to t('links.buy_bid'), buy_bid_path %></li>
+              <li><%= link_to t('links.logout'), destroy_user_session_path, :method => :delete %></li>
+              <% if current_user.is_admin? || current_user.is_agent? %>
+              <li><%= link_to t('links.admin_path'), admin_root_path %></li>
+              <% end %>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+  <% if flash[:extra_bid].present? %>
+    <div class="notice_extra_bid"><%= t(".welcome_back") %></div>
+    <% flash[:extra_bid] = nil %>
+  <% end %>
+  <div class="wrapper">
+    <div class="header header_padding">
+      <%=link_to(image_tag(Settings.page.configuraton.logo, :id => 'logo'), root_path) %>
+      <%= render 'utils/special_text' %>
+      <%= render 'utils/navigation_menu' %>
+    </div>
+    <%= yield :intro %>
+    <div class="content normal_padding">
+      <%= yield %>
+    </div>
+    <div class="content next tight_padding">
+      <%= render 'auctions/next_auctions' %>
+      <%= render 'invites/big_friends' %>
+    </div>
+    <%= render 'utils/footer' %>
+  </div>
+  <%= yield :popup %>
+  <% if Settings.analytics %>
+    <%= render 'utils/analytics' %>
+  <% end %>
+</body>
+</html>

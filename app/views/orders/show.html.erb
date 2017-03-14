@@ -1,0 +1,10 @@
+<div class="info">
+  <div class="formular">
+    <h2><%= t('.title')%></h2>
+    <%= link_to t('.back'), orders_path, class: 'link' %>
+    <br /> <br />
+    <%= render 'compact_info', order: @order , auction: @auction %>
+    <%= render 'payment_information', auction: @auction %>
+  </div>
+  <%= render 'sidebar', auction: @auction %>
+</div>

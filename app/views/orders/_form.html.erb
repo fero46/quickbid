@@ -1,0 +1,57 @@
+<%= form_for [auction, order], url: auction_order_path(auction), html:{class: 'form'} do |f| %>
+  <% unless order.try(:errors).try(:blank?) %>
+    <div class="flash">
+      <h3><%= t('.you_have_errors') %></h3>
+      <% order.errors.full_messages.each do |msg| %>
+        <div class="message error"><p><%= msg %></p></div>
+      <% end %>
+    </div>
+  <% end %>
+<table>
+    <tr>
+      <td width="330px" style="padding-right:30px">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </td>
+      <td width="330px">
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname %>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td width="80%" style="padding-right:30px">
+        <%= f.label :street %>
+        <%= f.text_field :street %>
+      </td>
+      <td width="20%">
+        <%= f.label :streetnumber %>
+        <%= f.text_field :streetnumber %>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td width="30%" style="padding-right:30px">
+        <%= f.label :zipcode %>
+        <%= f.text_field :zipcode %>
+      </td>
+      <td width="70%">
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+      </td>
+    </tr>
+  </table>
+    <%- unless order.order_variations.blank? %>
+      <%= f.fields_for :order_variations do |order_variations| %>
+        <%= render 'order_variations_fields', :f => order_variations %>
+      <% end %>
+    <% end %>
+
+
+  <%= f.label :note %>
+  <%= f.text_area :note %>
+        
+  <%= f.button t('.button') %>
+<% end %>

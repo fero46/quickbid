@@ -1,0 +1,19 @@
+<div class="button_box">
+    <% if current_user %>    
+      <button class="button" id="bid<%= @auction.try(:id)%>"><%= t('.bid') %></button>
+    <% else %>
+      <button class="button" onclick="location.href = '<%= new_user_session_path %>'"><%= t('.bid')%></button> 
+    <% end %>
+
+  <% if current_user %>    
+  <div class="alert_information" id="posi<%= @auction.try(:id) %>">
+    <span><%= t('auctions.auction.can_not_update') %></span>
+  </div>
+  <div class="alert_information" id="noli<%= @auction.try(:id) %>">
+    <span><%= t('auctions.auction.still_last_bidder') %></span>
+  </div>
+  <div class="succesfull_update" id="succi<%= @auction.try(:id) %>">
+    <span><%= t('auctions.auction.succesfull_update') %></span>
+  </div>     
+  <% end %>
+  </div>

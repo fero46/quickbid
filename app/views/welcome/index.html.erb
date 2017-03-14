@@ -1,0 +1,17 @@
+<% if Settings.page.configuraton.banner %>
+<% content_for :intro do %>
+  <%= render 'welcome' %> 
+<% end %>
+<% end %>
+<%if @hot_auctions.present? %>
+  <%= render 'utils/title', :title => t('.hot_auction') %>
+  <%= render 'auctions/auctions', auctions: @hot_auctions  %>
+<% end %>
+<%= render 'utils/title', :title => t('.newest') %>
+<div class="clear"></div>
+<%= render 'auctions/auctions', auctions: @auctions  %>
+<% unless @auctions.blank? %>
+<div class="actionpanel">
+  <%= link_to t('.more'), auctions_path %>
+</div>
+<% end %>

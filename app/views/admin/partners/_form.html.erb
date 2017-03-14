@@ -1,0 +1,70 @@
+<%= form_for [:admin, partner] , :html => {:class=> 'form'} do |f| %>
+  <% unless partner.errors.blank? %>
+    <div class="flash">
+    <% partner.errors.full_messages.each do |msg| %>
+        <div class="message error"><p><%= msg %></p></div>
+    <% end %>
+    </div>
+  <% end %>
+  <h3>Partnerdaten</h3>  
+  <div class="group">
+    <%= f.label :fullname , :class => "label" %>
+    <%= f.text_field :fullname, :class => "text_field" %>
+  </div>
+  <div class="group">
+    <%= f.label :firma, :class => "label" %>
+    <%= f.text_field :firma, :class => "text_field" %>
+  </div>
+  <div class="group">
+    <%= f.label :email, :class => "label" %>
+    <%= f.text_field :email, :class => "text_field" %>
+  </div>  
+  <div class="group">
+    <%= f.label :adresse, :class => "label" %>
+    <%= f.text_area :adresse, :class => "text_area"%>
+  </div>
+  <div class="group">
+    <%= f.label :telefon , :class => "label" %>
+    <%= f.text_field :telefon, :class => "text_field" %>
+  </div>
+  <div class="group">
+    <%= f.label :notiz, :class => "label" %>
+    <%= f.text_area :notiz, :class => "text_area"%>
+  </div>
+  <h3>Bankdaten</h3>
+
+  <div class="group">
+    <%= f.label :bank, :class => "label" %>
+    <%= f.text_field :bank, :class => "text_field" %>
+  </div>
+
+  <div class="group">
+    <%= f.label :iban, :class => "label" %>
+    <%= f.text_field :iban, :class => "text_field" %>
+  </div>
+  <div class="group">
+    <%= f.label :bic , :class => "label" %>
+    <%= f.text_field :bic, :class => "text_field" %>
+  </div>
+
+
+  <div class="group">
+    <%= f.label :kontoinhaber , :class => "label" %>
+    <%= f.text_field :kontoinhaber, :class => "text_field" %>
+  </div>
+
+  <h3>Partnerreferenz</h3>
+
+  <div class="group">
+    <%= f.label :partner_code, "Kommt von Partner", :class => "label" %>
+    <%= f.text_field :partner_code, :class => "text_field" %>
+  </div>
+
+  <div class="group navform wat-cf">
+    <button class="button">
+      <%= image_tag 'web-app-theme/icons/tick.png'%>
+      Seite speichern
+    </button>
+  </div>
+<% end %>
+<%= tinymce %>

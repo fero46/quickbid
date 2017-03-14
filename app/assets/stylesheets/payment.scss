@@ -1,0 +1,47 @@
+@import "color";
+.inner{
+  margin-top:40px;
+  margin-bottom: 40px;
+  .gebotspaket{
+    border: 1px solid $light_grey;
+    padding: 1px;
+    float:left;
+    width:195px;
+    margin-right:5px;
+    .box,.price{
+      font-size: 20px;
+      font-weight: bold;
+      padding-top:40px;
+      padding-bottom:40px;
+      color:black;
+      text-align: center;
+      text-transform: uppercase;
+      background: $light_grey;
+    }
+    .price{
+      margin-bottom: 10px;
+      padding-top:20px;
+      padding-bottom:20px;
+      color: white;
+      background: $light_green;
+    }
+    .link{
+      margin-top: 10px;
+      display: block;
+      padding-top:20px;
+      padding-bottom:20px;
+      text-align: center;
+      background: $light_red;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:hover{
+        text-decoration: underline;
+        background: darken($light_red, 10%);
+      }
+    }
+  }
+  .last{
+    margin-right: 0px;
+  }
+}

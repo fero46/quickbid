@@ -1,0 +1,60 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active first"><%= link_to 'Alle Produkte', admin_products_path %></li>
+      <li class=""><%= link_to 'Neues Produkt erstellen', new_admin_product_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Alle Produkte</h2>
+    <div class="inner">
+      <div class="search">
+        <form class="form">
+            <div class="group"> 
+              <label class="lavel">Suchen</label>
+              <input type="text" class="text_field" name="search">
+            </div>
+            <div class="group navform wat-cf">
+                <input type="submit" class="button">
+            </div>
+          </form>
+        </div>
+        <div class="search">
+            <div class="group navform wat-cf">
+            <form name="search_filter">
+            <label> Auktionskonfiguration</label>
+              <%= select :product, :auction_configuration_id, AuctionConfiguration.all.collect { |p| [p.name, p.id] }, {:include_blank => true, :selected => @filter}, name: :filter %>
+            </form>
+            <br />
+            <br />
+          </div>
+        </div>
+      <% if @products.present? %>
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Marke</th>
+          <th>Kurzbeschreibung</th>
+          <th>Anzahl der Auktionen</th>
+          <th></th>
+        </tr>
+        <% for product in @products %>
+          <tr>
+            <td><%= image_tag product.main_image.try(:thumb) %></td>
+            <td><%= product.brand %></td>
+            <td><%= product.short_description %> </td>
+            <td><%= product.auctions.count %></td>
+            <td>
+              <%= link_to 'Anzeigen', admin_product_path(product) %>
+              <%= link_to 'Bearbeiten', edit_admin_product_path(product) %> 
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate @products %>
+      <% else %>
+        Keine Produkte vorhanden
+      <% end %>
+    </div>
+  </div>
+</div>

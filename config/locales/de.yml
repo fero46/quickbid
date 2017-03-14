@@ -1,0 +1,222 @@
+de:
+  views:
+    pagination:
+      truncate: "..."
+  model:
+    errors:
+      custom:
+        before_start: "kann nicht vor oder gleich Auktionsbegin sein."
+  layouts:
+    application:
+      how_desc: "So funktioniert JIHI"
+      how_desc_first: "Gebotspaket kaufen"
+      how_desc_second: "Schuhe/Taschen wählen und 1 cent mehr bieten"
+      how_desc_third: "Sobald die Zeit abgelaufen ist und niemand höher bietet, Produkt zum Schnäppchenpreis erwerben."
+      claim: "Luxus-Mode Auktion Auf JIHI - %{content}"
+      welcome_back: Willkommen zurück. Für deine Treue bekommst du Heute 3 Freigebote.
+  links:
+    login: Anmelden
+    signup: Registrieren
+    buy_bid: Gebotspaket kaufen
+    admin_path: Backend
+    orders: Gewonnene Auktionen
+    settings: Einstellung
+    invites: Freigebote
+  variation_group:
+    size: Größe
+  category:
+    apple: "Apple"
+    entertainment: "Unterhaltung"
+    computer: 'Computer'
+    telephone: "Telefon"
+    household: "Haushalt"
+    lifestyle: "LifeStyle"
+    ipad: "Ipad"
+    iphone: "Iphone"
+    desktop: "Desktop"
+    notebook: "Notebook"
+    printer: "Drucker"
+    network: "Netzwerk"
+    smartphone: "Smartphone"
+    featurefones: "Feauturephone"
+    landline: "Festnetz"
+    tv: "TV"
+    hifi: Hifi
+    game: Spiele
+    kitchen: "Küche"
+    living: 'Leben'
+    garden: 'Garten'
+    else: 'Sonstiges'
+  pages:
+    show:
+      error_4040: "404 - Ooops, irgendwas ist schiefgelaufen."
+      description: "Da hat sich jemand verlaufen, geh auf die Startseite und versuchs erneut"
+  invites:
+    big_friends:
+      free_bids: Freigebote
+      invite_and_get_free_bids: "Freunde einladen und <a class='light_red' href='%{url}'>Freigebote</a> erhalten"
+    show:
+      title: Lade Freunde ein und erhalte bis zu 175 Freigebote
+      description: Lade mit deinem persöhnlichem Einladungslink deine Freunde auf JIHI ein. Je mehr du einlädts, desto mehr Freigebote erhälts du. Du sparst baares Geld.
+      easy_description: Freunde einladen geht ganz einfach entweder kopierst du den Link in der Box oder drückst auf diese Seite teilen.<br/> <bold>Pro-Tip:</bold> Ganz einfach geht es, wenn du angemeldet bist und die Auktionen auf Facebook, Twitter und Co. teilst.
+    invite_counter:
+      counter: "%{actual} von %{required}"
+      checked: Freigeschaltet.
+      unchecked: Nicht Freigeschaltet.
+  payment:
+    buy:
+      title: Gebotspaket kaufen
+      description: "Lade dein Gebotskonto mit attraktiven Gebotspaketen in verschiedenen Größen auf. Diese kannst du bequem und sicher über Paypal erwerben, um sofort mitzubieten."
+  auctions:
+    index:
+      title: Alle aktiven Autkionen
+    default_text:
+      no_auctions: Ups, zurzeit laufen keine Auktionen.
+      no_auctions_signed_in: Schaue später nochmal vorbei. Im Newsletter bekommst du alle Auktionen mitgeteilt. 
+      no_auctions_unsigned: Melde dich an, damit du keine Auktion mehr verpasst.
+    auction:
+      price: "Vergleichspreis: %{price}"
+      highest: "Höchstbietender: "
+      actual_price: "Aktueller Preis"
+      winning_price: "Gewonnen zum Preis"
+      hours: "Std."
+      minutes: "Min."
+      seconds: "Sec."
+      bid: Bieten
+      can_not_update: Kein Bietguthaben mehr. Um zu Bieten bitte Bietguthaben aufladen.
+      succesfull_update: Super. Dein Gebot wurde abgegeben.
+      still_last_bidder: Kann nicht bieten, da du schon als letztes Geboten hast.
+    next_auctions:
+      next_auction: Bald erscheinende Auktionen
+      dayli: "Wir bieten dir täglich Luxus Auktionen an. Die nächste geht schon bald los."
+    show:
+      actual_bid: Aktuelles Gebot
+      regular_price: "Vergleichspreis: %{regular_price}"
+      shipment_price: "Versandkosten: %{shipment_price}"
+      running: "Auktion läuft noch"
+      endet: "Auktion ist beendet"
+      share_now: Jetzt Teilen
+      starts: "Auktion startet am %{at}"
+    bid_button:
+      bid: Bieten      
+    order_button:
+      order: Gewinn abholen.
+    timer:
+      hours: "Std."
+      minutes: "Min."
+      seconds: "Sec."
+  utils:
+    special_text:
+      invite_friends_now: "Lade jetzt Freunde auf JIHI ein und erhalte sofort Freigebote"
+      register_now: "Registriere dich jetzt auf JIHI und erhalte zum Start 3 Freigebote"
+    title:
+      subtitle: Jetzt Anmelden und mitbieten
+    footer:
+      secure_shoping:
+        title: Sicheres Kaufen
+        description: Deine personen bezogene Daten sind bei uns sicher und werden nicht weiter gegeben.
+      customer_service:
+        title: 24/7 Kundenservice
+        description: Falls du noch offene Fragen hast, frag uns. Wir sind 24 Stunden und 7 Tage die Woche für dich da.
+      warranty:
+        title: 100% Garantie
+        description: Auf JIHI erhälts du mit 100 prozentiger Garantie die Schuhe zu dem gewonnen Preis.
+      info_title: Informationen
+      about: Über JIHI
+      privacy: Datenschutzbestimmung
+      terms: Allgemeine Geschäftsbedingung
+      payment: Sicheres Bezahlen
+      delivery: Lieferbedingung
+      service_title: Service und Support
+      customer_support: Kundenbetreuung
+      faq: FAQs
+      partner: Partnerprogramm
+      contact: Kontakt
+      impressum: Impressum
+  orders:
+    new:
+      title: Deine Lieferangaben.
+    title:
+      title: Deine Lieferangaben bearbeiten.
+    form:
+      you_have_errors: Lieferadresse kann nicht gespeichert werden.
+      button: Speichern
+    compact_info:
+      your_adress: Deine Adresse
+      your_notes: Deine zusätzlichen Angaben
+      no_notes: Keine zusätzlichen Angaben
+    confirm:
+      title: Eingabe der Lieferadresse bestätigen
+      description: Bitte kontrolliere noch einmal deine Lieferadresse und bestätige diese. Danach erhälts du Information zum weiteren verlauf.
+      edit: Korrigieren
+      reset: Zurücksetzen
+      confirm: Bestätigen
+    index:
+      show: Details Anzeigen
+    show:
+      title: Bestellinformation und Zahlungsinformation
+      back: Alle Gewonnen Artikel
+
+  welcome:
+    welcome:
+      title: "Fashion zu tief fliegenden Preisen"
+      subtitle: "Auf <i>JIHI</i> bietest du auf exklusive Modeauktionen von Top Designer"
+      button: Jetzt Anmelden
+    index:
+      newest: "Live Auktionen"
+      hot_auction: "Hot Auktionen"
+      more: "Weitere Auktionen >"
+  luckylosers:
+    show:
+      title: Luckyloser Rally
+      description: "Bei uns kann jeder Gewinnen und wir sind ständig bemüht jeden zu einem Gewinner zu machen. Es gibt fast keinen Verlierer und selbst wenn du verlierst, kannst du noch immer unser Lucky Loser werden. Bei diesem Prinzip gewinnt jede Woche derjenige der bei uns die meisten Gebote gekauft hat und leider keine Auktion gewonnen hat."
+      banner: "luckyuser_fashion.jpg"
+  admin:
+    auctions:
+      form:
+        select_product: Ein Produkt auswählen
+  activerecord:
+    models:
+      product: Produkt
+      user: Benutzer
+      order: Lieferung
+      order_variations: Zusatzangaben für Bestellung
+    attributes:
+      order_variations:
+        value: Zusatzangaben für Bestellung
+      order:
+        name: Dein Name
+        lastname: Dein Nachname
+        street: Deine Straße
+        streetnumber: Deine Hausnummer
+        zipcode: Deine Postleitzahl
+        city: Deine Stadt
+        note: Deine Zusätzlichen Angaben
+        order_variations:  Zusatzangaben für Bestellung
+      product:
+        brand: Marke
+        short_description: Kurzbeschreibung
+        description: Beschreibung
+        price: Preis
+        online_shop: Online Shop
+        shop_url: URL zum Produkt
+        category_id: Kategorie
+        activated: Aktiviert (auf der Plattform anzeigen)
+        product_images: Produktbilder
+        product_variations: Produktvariation        
+      user:
+        username: Benutzername
+        password: Passwort
+        password_confirmation: "Passwort bestätigung"
+        email: "E-mail"
+        remember_me: "Angemeldet bleiben"
+        terms: AGB
+      auction:
+        image: Bild
+        category: Kategorie
+        description: Beschreibung
+        title: Überschrift
+        price: Preis
+        end: Auktionsende
+        start: Auktionsbegin
+        deactivate_bots: Hot Auktionen

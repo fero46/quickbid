@@ -1,0 +1,29 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Bestellung</h2>
+    <div class="inner">
+       STATUS: <%= @order.try(:auction).try(:state) %>
+       <h3>Lieferdetails</h3>
+       <h4>Adresse</h4>
+        <%= @order.name %> <%= @order.lastname %> <br/>
+        <%= @order.street %> <%= @order.streetnumber %><br />
+        <%= @order.zipcode %> <%= @order.city %> <br /><br />
+      <h4>Notiz</h4>
+      <p>
+        <% if @order.note.present? %>
+        <%= @order.note %>
+        <% else %>
+        Keine Notizen
+        <% end %>
+      </p>
+      <h4>Auktionsdetails</h4>
+      <p>
+        Preis: <%= @order.try(:auction).try(:price_value) %><br />
+        Produkt: <%= link_to 'Anzeigen', admin_product_path(@order.try(:auction).try(:product)) %>
+      </p>
+    </div>
+  </div>
+</div>

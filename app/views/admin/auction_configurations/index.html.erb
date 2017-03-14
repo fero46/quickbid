@@ -1,0 +1,33 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Alle Auktionen</h2>
+    <div class="inner">
+        <% if @auction_configurations.present? %>
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Tag</th>
+            <th>Startzeitraum</th>
+            <th></th>
+          </tr>
+            <%for auction_configuration in @auction_configurations %>
+            <tr>
+              <td><%= auction_configuration.name %></td>
+              <td><%= auction_configuration.day_in_week_human %></td>
+              <td><%= auction_configuration.day_part_human %></td>
+              <td><%= link_to 'Bearbeiten', edit_admin_auction_configuration_path(auction_configuration)%><br/>
+                  <%= link_to 'Löschen', admin_auction_configuration_path(auction_configuration),  :confirm => 'Bist du Sicher?', :method => :delete%>
+              </td>
+            </tr>
+            <% end %>
+        </table>     
+        <%= paginate @auction_configurations %>
+      <% else %>
+        Keine Auktionen
+      <% end %>
+    </div>
+  </div>
+</div>

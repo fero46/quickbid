@@ -1,0 +1,25 @@
+<div class="block">
+  <div class="secondary-navigation">
+      <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Benutzerdetails</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th>Benutzername</th>
+          <th>E-Mail</th>
+          <th>Gebote</th>
+          <th>Gekaufte Gebote</th>
+          <th>Freigebote</th>
+        </tr>
+        <tr>
+          <td><%= @user.username %></td>
+          <td><%= @user.email %></td>
+          <td><%= @user.bid_count %></td>
+          <td><%= @user.paid_bids %></td>
+          <td><%= @user.free_bids %></td>
+        </tr>
+      </table>
+    </div>
+</div>

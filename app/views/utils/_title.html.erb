@@ -1,0 +1,47 @@
+<% content_for :popups  do %>
+<div class="glass">
+  <div class="popup" id="vi">
+    <a class="close"><%= image_tag('close_popup.png') %></a>
+    <div class="inner">
+      <iframe id="playerid" allowscriptaccess="always" width="640" height="480" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function toggleVideo(state) {
+    // if state == 'hide', hide. Else: show video
+    var div = document.getElementById("vi");
+    var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+    func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+    iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*');
+  }
+
+
+  $(document).ready(function(){
+    $('.glass, .glass .popup a.close').click(function(){
+      $('.glass').fadeOut('slow');
+      toggleVideo('hide');
+    });
+
+    $('#video_intro').click(function(){
+      document.getElementById('playerid').src="//www.youtube.com/embed/7P9J6AF4nQ4?rel=0?&autoplay=1";
+      $('.glass').fadeIn('slow');
+      toggleVideo('show');
+    });
+  });
+</script>
+<% end %>
+
+<div class="title">
+  <div class="inner">
+    <h2><%= title %></h2>
+    <% unless current_user %>
+    <%=link_to t(".subtitle"),new_user_registration_path %>
+    <% end %>
+  </div>
+<!--
+  <a id="video_intro"><%= image_tag ('video_intro.png')%></a>
+-->
+  <div class="clear"></div>
+</div>

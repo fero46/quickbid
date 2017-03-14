@@ -1,0 +1,32 @@
+<h2 class="big"><%= t('.title') %></h2>
+<p>
+  <%= t ('.description') %>
+</p>
+<br />
+<div class="meter">
+  <span style="width: <%=current_user.perecents_of_invitation%>%"></span>
+</div>
+<br />
+<br />
+<%= render 'invite_counter', counter: 5, bids: 10 %>
+<%= render 'invite_counter', counter: 20, bids: 15 %>
+<%= render 'invite_counter', counter: 50, bids: 20 %>
+<%= render 'invite_counter', counter: 100, bids: 50 %>
+<%= render 'invite_counter', counter: 200, bids: 80 %>
+<div class="clear"></div>
+<br />
+<p><%= t('.easy_description').html_safe %></p>
+<br />
+<input id="invite_box" value="<%= root_url(invite: current_user.try(:invite_code)) %>" >
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style " addthis:url="<%= root_url(invite: current_user.try(:invite_code)) %>" >
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5218d4c5406dd836"></script>
+<!-- AddThis Button END -->

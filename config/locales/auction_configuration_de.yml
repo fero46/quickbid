@@ -1,0 +1,22 @@
+de:
+  auction_configuration:
+    monday: Montag
+    tuesday: Dienstag
+    wednesday: Mittwoch
+    thursday: Donnerstag
+    friday: Freitag
+    saturday: Samstag
+    sunday: Sonntag
+    morning: Vormittag
+    noon: Mittag 
+    afternoon: Nachmittag 
+    evening: Abend
+    night: Nacht
+  activerecord:
+    models:
+      auction_configuration: Auktionskonfiguration
+    attributes:
+      auction_configuration:
+        name: Name
+        day_in_week: Wochentag
+        day_part: Tageszeit

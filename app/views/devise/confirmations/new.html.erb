@@ -1,0 +1,23 @@
+<h2 class="big">Bestätigungsmail zuschicken</h2>
+
+<div class="user_form">
+  <% if Settings.page.configuraton.girls %>
+    <%= image_tag 'sidegirl_signup.png', :id => "stoerer" %>
+  <% end %>
+  <p class="action_call">Haben Sie keine Bestätigungsmail erhalten ?</p>
+  <p class="action_call">Jetzt ihre Email Adresse eintragen und ihre Bestätigungsmail erhalten.</p>
+  <div class="content_form">
+    <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'form' }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div><%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true %></div>
+
+      <div><%= f.button "Bestätigungsmail senden" , :class => 'button' %></div>
+  <% end %>
+  <br />
+
+  <%= render "devise/shared/links" %>
+
+</div>
+

@@ -1,0 +1,9 @@
+<div class="group fields">
+  <%= f.select :auction_configuration_id, AuctionConfiguration.all.collect { |p| [p.name, p.id] }, {:include_blank => true} %>
+
+  <%= link_to_remove_fields image_tag('delete.png'), 
+                            f, 
+                            :alt => "Lösch Auktionskonfiguration", 
+                            :title => "Lösch Auktionskonfiguration" %>
+
+</div>

@@ -1,0 +1,48 @@
+<h2 class="big"><%= t('.sign_up') %></h2>
+<div class="user_form">
+  <% if Settings.page.configuraton.girls %>
+    <%= image_tag 'sidegirl_signup.png', :id => "stoerer" %>
+  <% end %>
+  <p class="action_call"><%= t('.call_to_action_1').html_safe %></p>
+  <p class="action_call"><%= t('.call_to_action_2').html_safe %></p>
+  <div class="content_form">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form'}) do |f| %>
+      <%= devise_error_messages! %>
+      <% if cookies[:invite_from].present? %>
+        <%= f.hidden_field :inviter_reference, value: cookies[:invite_from] %>
+      <% end %>
+      <div><%= f.label :username %>
+           <%= f.text_field :username, :autofocus => true %></div>
+      <script type="text/javascript">
+
+      </script>
+      <div><%= f.label :email %>
+      <%= f.email_field :email %></div>
+
+      <div><%= f.label :password %>
+      <%= f.password_field :password %></div>
+
+      <div><%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %></div>
+      <%if cookies[:refcode].present? %>
+        <%= f.hidden_field :refered_from, :value => cookies[:refcode] %>
+      <% end %>
+      <div><%= f.check_box :terms, :class=>"checkbox" %> Ich habe die <%= link_to t('utils.footer.terms'), page_path('terms'), :class => 'link' %> gelesen und Akzeptiert.</div>
+
+      <br />
+
+      <div><%= f.button t('.sign_up'), :class => 'button'%></div>
+    <% end %>
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
+  <div class="sidebar">
+    <h3><%= t('.mini_title')%></h3>
+    <ul>
+      <li><%= t('.register_free_description') %></li>
+      <li><%= t('.free_bids_description') %></li>
+      <li><%= t('.bid_now_description') %></li>
+    </ul>
+  </div>
+<div class="clear"></div>
+</div>

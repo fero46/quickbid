@@ -1,0 +1,118 @@
+<div class="show_auction">
+  <div class="breadcrumb">
+    <%= link_to(@auction.category.category.category_name, category_path(@auction.category.category.name)) if @auction.category.category %>    
+    <%= link_to(@auction.category.category_name,category_path(@auction.category.name)) %>
+    <span><%= @auction.try(:product).try(:brand) %></span>
+  </div>
+  <div class="content_area">
+    <div class="product_info">
+      <div class="image_panel">
+        <div class="preview">
+          <div class="image_box">
+            <%= image_tag @auction.try(:product).try(:main_image).try(:default), id: 'image_view' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="auction_panel">
+        <h3><%= @auction.try(:product).try(:short_description) %></h3>
+        <h4><%= @auction.try(:product).try(:brand) %></h4>
+        <p><%= t('auctions.auction.highest') %> <span id="latest<%= @auction.try(:id) %>"><%= @auction.try(:lastbidder_user_name) %></span></p>
+        <span class="bold"><%= t('.running') %></span>
+        <h6><%= t('.regular_price', :regular_price => number_to_currency(@auction.try(:product).try(:price)))%>, 
+        <%= t('.shipment_price', :shipment_price => number_to_currency(@auction.try(:product).try(:shipment_price)))%></h6>
+
+        <br /><h3><%= t('.share_now') %></h3>
+        <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style " addthis:url="<%= create_auction_share_link(@auction) %>" >
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5218d4c5406dd836"></script>
+<!-- AddThis Button END -->
+        <%= render "bid_information", :auction => @auction %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="image_tabs">
+    <div class="selection">
+      <ul>
+      <% for product_image in @auction.try(:product).try(:product_images) %>
+        <li>
+        <%= image_tag product_image.try(:image).try(:thumb),
+          data: {default: product_image.try(:image).try(:default).url},
+          class: product_image.id == @auction.try(:product).try(:product_images).try(:first).try(:id) ? "selected item image_thumb": "image_thumb"
+         %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $('.image_thumb').click(function(e){
+        e.preventDefault();
+        var imgURL = $(this).attr("data-default");
+        $("#image_view")
+          .fadeOut(400, function() {
+            $("#image_view").attr('src',imgURL);
+          }).fadeIn(400);
+        $('.selected').removeClass('selected');
+        $(this).addClass('selected');
+    });
+  </script>
+  <ul id="inforamtion_tab">
+    <li><a class="active" id="description_tab">Beschreibung</a></li>
+    <li><a id="bidlist_tab">Auktionsverlauf</a></li>  
+  </ul>
+  <div class="clear"></div>
+  <div class="information">
+    <div id="description_wrapper">
+      <% if @auction.has_variations? %>
+        <% for variation in @auction.variation_groups %>
+          <b>Vorhandene <%= I18n.t ("variation_group.#{variation}") %> :</b>
+          <%= @auction.variation_values(variation).map{|variation| variation.value}.join('; ') %>
+          <br />
+          <br />
+        <% end %>
+      <% end %>
+      <%= @auction.try(:product).try(:description).try(:html_safe) %>
+      <div class="clear"></div>
+    </div>
+    <div id="bidlist_wrapper">
+      <h4>Gebotsverlauf</h4>
+      <ul id="bidlist_history">
+      <% for bid_history in @auction.latest_ten %>
+        <li><%=l bid_history.created_at, format: :short%> - <%= bid_history.try(:user).try(:username) %></li>
+      <% end %>
+    </ul>
+    <div class="clear"></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $('#description_tab').click(function(){
+        $('#description_wrapper').show();
+        $('#bidlist_wrapper').hide();
+        $('#description_tab').addClass('active');
+        $('#bidlist_tab').removeClass('active')
+        return false;
+    });
+    $('#bidlist_tab').click(function(){
+        $('#bidlist_wrapper').show();
+        $('#description_wrapper').hide();
+        $('#bidlist_tab').addClass('active');
+        $('#description_tab').removeClass('active');
+        return false;
+    });
+  </script>
+  <%= render 'init',  id:       @auction.id, 
+                      detail:   true %>
+
+</div>
+<span id="detail_check"></span>

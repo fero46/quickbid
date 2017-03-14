@@ -1,0 +1,30 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active first"><%= link_to 'Alle Partner', admin_partners_path %></li>
+      <li><%= link_to 'Neuen Partner anlegen', new_admin_partner_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Alle Seiten</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Firma</th>
+          <th></th>
+        </tr>
+        <%for partner in @partners %>
+          <tr>
+            <td><%= partner.try(:fullname) %></td>
+            <td><%= partner.try(:firma) %></td>
+            <td><%= link_to 'Zeigen', admin_partner_path(partner) %>, 
+            <%= link_to 'Bearbeiten', edit_admin_partner_path(partner) %>,
+            <%= link_to 'Löschen', admin_partner_path(partner),
+            :confirm => 'Diesen Partner wirklich löschen?', :method => :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="block">
+  <div class="secondary-navigation">
+      <%= render 'navigation', current_navigation: @current_navigation %>
+  </div>
+  <div class="content">
+    <h2>Benutzer <%= @user.username %>(<%= @user.email %>) bearbeiten</h2>
+    <div class="inner">
+      <%= render 'form', :user => @user %>
+    </div>
+  </div>
+</div>

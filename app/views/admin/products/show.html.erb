@@ -1,0 +1,80 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active first"><%= link_to 'Alle Produkte', admin_products_path %></li>
+      <li class=""><%= link_to 'Neues Produkt erstellen', new_admin_product_path %></li>
+      <li class=""><%= link_to 'Dieses Produkt bearbeiten', edit_admin_product_path(@product) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2> Produkt <%= @product.short_description %></h2>
+    <div class="inner">
+      <div style="text-align:right">
+        <%= link_to "Auktion für dieses Produkt erstellen", new_admin_auction_path(:product_id => @product.id) %>
+      </div>
+
+      <h3>Kurz info</h3>
+      <table class="table">
+        <tr>
+          <th>Preis</th>
+          <th>Versandkosten</th>
+          <th>Online Shop</th>
+          <th>Marke</th>
+          <th>Produkt Link</th>
+        <tr>
+        <tr>
+          <td><%= number_to_currency @product.price %></td>
+          <td><%= number_to_currency @product.shipment_price %></td>
+          <td><%= @product.online_shop %></td>          
+          <td><%= @product.brand %></td>
+          <td><%= link_to "Produkt Seite", @product.shop_url %></td>
+        </tr>
+      </table>
+      <h3>Auktionen</h3>
+      <table class="table">
+        <tr>
+          <th>Auktionsstatus</th>
+          <th>Besucher</th>
+          <th>Gebote</th>
+          <th>Aktueller Preis</th>
+          <th>Einnahmen</th>
+          <th></th>
+        </tr>
+        <% if @auctions .present? %>
+          <% for auction in @auctions %>
+          <tr>
+            <td><%= auction.state %></td>
+            <td><%= auction.visits %></td>
+            <td><%= auction.bids %></td>
+            <td><%= number_to_currency (auction.actual_value) %></td>                     
+            <td><%= number_to_currency (auction.intern_bids * 0.5) %></td>         
+            <td><%= link_to 'Details', admin_auction_path(auction) %></td>
+          </tr>
+          <% end %>
+        <% end %>
+
+      </table>
+          <%= paginate @auctions %>
+    <h3>Bilder</h3>
+    <% for product_image in @product.product_images %>
+      <%= link_to(image_tag(product_image.image.thumb), product_image.try(:image).try(:default).try(:url), :target => '_blank') %>
+    <% end %>
+      <% if @product.has_variations? %>
+     <br />
+    <br />
+
+      <div>
+        <% for variation in @product.variation_groups %>
+          <b>Vorhandene <%= I18n.t ("variation_group.#{variation}") %> :</b>
+          <%= @product.variation_values(variation).map{|variation| variation.value}.join('; ') %>
+          <br />
+          <br />
+        <% end %>
+      </div>
+      <% end %>
+
+    <h3>Beschreibung</h3>
+    <%= @product.try(:description).try(:html_safe) %>
+    </div>
+  </div>
+</div>

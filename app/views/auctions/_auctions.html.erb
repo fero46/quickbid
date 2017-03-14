@@ -1,0 +1,11 @@
+<% unless auctions.blank? %>
+  <%= render auctions %>
+<% else %>
+  <span class="information_center"><%= t('auctions.default_text.no_auctions') %></span>
+  <% if current_user %>
+    <span class="information_center no_margin"><%= t('auctions.default_text.no_auctions_signed_in') %></span>
+  <% else %>
+    <span class="information_center no_margin"><%= t('auctions.default_text.no_auctions_unsigned') %></span>
+  <% end %>
+<% end %>
+<div class="clear"></div>

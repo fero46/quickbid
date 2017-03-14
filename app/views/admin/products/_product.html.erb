@@ -1,0 +1,9 @@
+<div class="product" id="#<%= product.id %>">
+  <%= image_tag product.try(:product_images).try(:first).try(:image).try(:thumb)%>
+  <span id="product_brand"><%= product.try(:brand) %></span>
+  <span id="product_brand"><%= product.try(:short_description) %></span>
+  <span id="product_brand"><%= product.try(:price) %></span>
+  <%= link_to 'Bearbeiten', edit_admin_product_path(product) %>
+  <%= link_to 'Anzeigen', admin_product_path(product) %>
+
+</div>

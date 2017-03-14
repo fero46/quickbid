@@ -1,0 +1,13 @@
+<%- # encoding: UTF-8 %>
+<p> Vielen Dank für deine Registrierung</p>
+
+<p> Jetzt bist du nur noch einen Schritt vom "Entertainment-Shoppen" entfernt. Bestätige bitte deine Registrierung und das "Schnäpchen-Shoppen" kann losgehen :) </p>
+
+Bestätigungslink:
+<p>
+
+<p>
+  <%= link_to 'Registrierung bestätigen', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %>
+</p>
+
+<%= render 'shared/email_footer' %>

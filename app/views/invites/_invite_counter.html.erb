@@ -1,0 +1,11 @@
+<div class="invite_counter_box <%= current_user.try(:invite_counter) >= counter ? 'checked': '' %> ">
+  <span class="bidcounter"><%= bids %></span>
+  <span class="counter"><%= t('.counter', required: counter, actual: current_user.try(:invite_counter)) %>
+  <p>
+  <% if current_user.try(:invite_counter) >= counter %>
+    <%= t (".checked") %>
+  <% else %>
+    <%= t (".unchecked") %>
+  <% end %>
+  </p>
+</div>

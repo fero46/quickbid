@@ -1,0 +1,415 @@
+@import "color";
+
+.auction{
+  position: relative;
+  border: 1px solid darken($light_grey,10%);
+  width: 240px;
+  padding-top:10px;
+  float:left;
+  margin-right:16px;
+  margin-bottom:10px;
+  margin-top:10px;
+  .image_box{
+    position: relative;
+    text-align: center;
+    img{
+      display: inline;
+    }
+    .action{
+      display: none;
+      position:absolute;
+      height:100%;
+      width: 100%;
+      top:0px;
+      left:0px;
+      button, .biet{
+        position:absolute;
+        display: inline-block;
+        margin: -50px 0 0 -50px;
+        top: 50%;
+        left:50%;
+        background-color: $light_red;
+        border: 1px solid $light_red;
+        @include border-top-radius(999px);
+        @include border-bottom-radius(999px);
+        @include border-left-radius(999px);
+        @include border-right-radius(999px);
+        width: 100px;
+        height: 100px;
+        font-size: 18px;
+        color:white;
+        cursor:pointer;
+        &:hover{
+          background-color: darken($light_red, 10%);
+          border: 1px solid darken($light_red, 10%);
+        }
+        &:focus {outline:0;}
+      }
+
+    }
+    &:hover{
+      .action{
+        @include transition-timing-function(ease-in);
+        display: block;
+      }
+    }
+    .info{
+      display: none;
+      position:absolute;
+      height:100%;
+      width: 100%;
+      top:0px;
+      left:0px;
+      .alert_information, .succesfull_update{
+        display: none;
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 100%;
+        color:white;
+        span{
+          display: table-cell;
+          vertical-align: middle;
+
+        }
+      }
+      .alert_information{
+        background-color: $light_red;
+      }
+      .succesfull_update{
+        background-color: $light_green;
+      }
+    }
+  }
+  .top_auction{
+    padding:10px;
+    background-color: $light_grey;
+    h3{
+      font-size: 14px;
+      font-weight: 400;
+            a:hover{
+        text-decoration: underline;
+      }
+    }
+    h2{
+      font-size: 13px;
+      font-weight: 300;
+      margin-bottom:10px;
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+    p{
+      font-size: 12px;
+    }
+  }
+  .hot_auction{
+    background-color: $light_red;
+    color:white;
+    a{
+      color:white;
+    }
+  }
+  .data{
+    margin-top:10px;
+    border-top: 1px solid $light_grey; 
+    .price{
+      padding: 3px 0px;
+      font-size:13px;
+      float:left;
+      color: $light_red;
+      text-align: center;
+      font-weight: 600;
+      width: 100%
+    }
+    .timer{
+      font-size: 13px;
+      float: left;
+      width: 239px;
+    }
+  }
+}
+
+.information_center{
+  display: block;
+  font-size: 18px;
+  font-weight: 200;
+  text-align:center;
+  margin-top:20px;
+}
+
+.no_margin{
+  margin:0px;
+}
+
+.auction.last{
+  margin-right: 0px;
+}
+
+.positioner{
+  display:none;
+}
+
+.next_auctions{
+  h2, h3{
+    padding-left:20px;
+  }
+  h3{
+      font-size: 18px;
+      font-weight: 200;
+      margin-bottom:40px;
+
+  }
+  h2{
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom:10px;
+  }
+  .grey_box{
+    background-color: $light_grey;
+    padding: 20px;
+    border: 1px solid darken($light_grey, 10%);
+    @include border-top-radius(5px);
+    @include border-bottom-radius(5px);
+    @include border-left-radius(5px);
+    @include border-right-radius(5px);
+    .preview{
+      float:left;
+      background-color: white;
+      border: 1px solid darken($light_grey,10%);
+      margin-right: 13px;
+      img{
+        padding: 5px;
+        width: 180px;
+        height: 180px;
+      }
+      .information{
+        @include linear-gradient(#6b6064, #4a4044);
+        padding:15px;
+        color:white;
+        span{
+          display: block;
+          text-align:center;
+          font-size: 12px;
+          font-weight: 300;
+          a{
+            color:white;
+          }
+        }
+      }
+      .starttime{
+        font-size: 13px;
+        font-weight: 300;
+        padding: 5px;
+        text-align:center;
+        color: $light_red;
+      }
+    }
+    .preview.last{
+      margin: 0px;
+    }
+  }
+}
+
+.selection{
+    position: relative;
+    overflow: hidden;
+    padding-left:30px;
+    padding-right:30px;
+    .wrapper{
+      position: relative;
+    }
+    ul{
+      position: relative;
+      list-style: none;
+      li{
+        float:left;
+        width: 90px;
+        margin-left: 2px;
+        img{
+          cursor: pointer;
+          &:hover{
+            border: 2px solid $light_grey;            
+          }
+        }
+        img.selected{
+          border: 2px solid $light_grey;
+        }
+
+      }
+      width:900px;
+    }
+    #to_left, #to_right{
+      top: 30px;
+    }
+    #to_left{
+      position: absolute;
+      left:0px;
+    }
+    #to_right{
+      position: absolute;
+      right:0px;
+  }
+}
+.show_auction{
+  .breadcrumb{
+    a{
+      &:after{
+        content:" / ";
+      }
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    span{
+      font-weight: bold;
+    }
+    font-size: 12px;
+  }
+  .content_area{
+    margin-top:20px;
+    .product_info{
+      margin-bottom: 20px;
+      .image_panel{
+        float:left;
+        .preview{
+          width: 290px;
+          padding:30px;
+          background: url(/assets/schatten.png) no-repeat center bottom;
+          .image_box{
+            width: 250px;
+            margin:0px auto;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border: 1px solid darken($light_grey, 10%);
+          }
+        }
+      }
+      .auction_panel{
+        font-size: 14px;
+        float:left;
+        width: 653px;
+        .bid{
+          margin-top: 30px;
+          border-top: 1px solid darken($light_grey,10%);
+          border-bottom: 1px solid darken($light_grey, 10%);
+          padding: 15px;
+          .price_value{
+            float:left;
+            color: $light_red;
+            font-weight: bold;
+            font-size: 24px;
+          }
+          .timer{
+            height:50px;
+          }
+          .button_box{
+            position:relative;
+            float:right;
+            height: 55px;
+            .button, .order_button{
+              padding: 15px 30px;
+              background-color: $light_red;
+              color: white;
+              border:none;
+              @include border-top-radius(5px);
+              @include border-bottom-radius(5px);
+              @include border-left-radius(5px);
+              @include border-right-radius(5px);
+              font-size: 18px;
+              cursor: pointer;
+              &:active{
+                background-color: darken($light_red, 10%);
+              }
+            }
+            .order_button{
+              background-color: $light_green;
+              &:active{
+                background-color: darken($light_green, 10%);
+              }
+
+            }
+          
+          .alert_information,.succesfull_update{
+            display: none;
+            position: absolute;
+            top:0px;
+            left:0px;
+            width: 100%;
+            height: 100%;
+            color:white;
+            text-align: center;
+            span{
+              display: table-cell;
+              vertical-align: middle;
+            }
+            font-size: 12px;
+          }
+          .alert_information{
+            background-color: $light_red;
+          }
+          .succesfull_update{
+            background-color: $light_green;
+          }
+        }
+        }
+      }
+    }
+  }
+  #inforamtion_tab{
+    list-style:none;
+    margin-top: 30px;
+    margin-left:20px;
+    li{
+      float:left;
+      margin-right: 15px;
+      a{
+        border: 1px solid darken($light_grey, 10%);
+        @include border-top-radius(5px);
+        border-bottom: none;
+        display: block;
+        padding: 10px;
+        cursor: pointer;
+        background: darken($light_grey, 10%);
+      }
+
+      a.active{
+        background: white;
+        position:relative;
+        bottom: -1px;
+      }
+    }
+  }
+
+  .information{
+    margin: 20px;
+    margin-top:0px;
+    padding: 40px;
+    border: 1px solid darken($light_grey, 10%);
+    box-shadow: darken($light_grey, 10%) 0px 10px 5px;
+    margin-bottom: 40px;
+  }
+  #bidlist_wrapper{
+    display: none;
+    ul{
+      list-style: none;
+      li{
+        padding:5px;
+        border-top: 1px solid darken($light_grey, 10%);
+      }
+      border-bottom: 1px solid darken($light_grey, 10%);
+    }
+  }
+}
+
+.bid_table{
+  .first, .bid_timer, .bid_button_action{
+    padding: 15px 0px;
+  }
+  .bid_button_action{
+    padding-left: 15px;
+    position: relative;
+  }
+}

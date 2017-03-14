@@ -1,0 +1,52 @@
+<div class="auction <%= 'last' if auction_counter % 4 == 3 %>" id="Auction<%= auction.try(:id) %>">
+  <div class="image_box">
+    <%= image_tag auction.try(:product).try(:product_images).try(:first).try(:image).try(:smaller) %>
+    <% unless auction.try(:time_is_over?) %>
+      <div class="action">
+      <% if current_user %>    
+          <button class="biet" id="bid<%= auction.try(:id)%>"><%= t('.bid')%></button>
+      <% else %>
+          <button class="jump" onclick="location.href = '<%= new_user_session_path %>'"><%= t('.bid')%></button> 
+      <% end %>
+      </div>
+      <div class="info">
+        <% if current_user %>    
+          <div class="alert_information" id="posi<%= auction.try(:id) %>">
+            <span><%= t('.can_not_update') %></span>
+          </div>
+          <div class="alert_information" id="noli<%= auction.try(:id) %>">
+            <span><%= t('.still_last_bidder') %></span>
+          </div>
+          <div class="succesfull_update" id="succi<%= auction.try(:id) %>">
+            <span><%= t('.succesfull_update') %></span>
+          </div>     
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="top_auction <%= "hot_auction" if auction.deactivate_bots %>">
+    <h3><%= link_to(auction.try(:product).try(:brand), auction_path(auction)) %></h3>
+    <h2><%= link_to(truncate(auction.try(:product).try(:short_description), length: 28), auction_path(auction)) %></h2> 
+    <p><%= t('.price',  :price => number_to_currency(auction.try(:product).try(:price), :unit => "€")) %></p>
+    <p><%= t('.highest') %> <span id="latest<%= auction.try(:id) %>"><%= auction.try(:lastbidder_user_name) %></span></p>
+  </div>
+  <div class="data">
+    <div class="price">
+      <% if auction.try(:time_is_over?) %>
+        <div class="actual_price"><%= t('.winning_price') %></div>
+      <% else %>
+        <div class="actual_price"><%= t('.actual_price') %></div>
+      <% end %>
+      <div class="price_value" id="price<%= auction.try(:id) %>"><%= number_to_currency(auction.try(:price_value)) %></div>
+    </div>
+    <% unless auction.try(:time_is_over?) %>
+      <div class="timer timerwrapper" id="timer<%= auction.try(:id) %>" data-ending-time="<%= auction[:end] %>">
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+<% if @noscript.blank? %>
+<%= render 'auctions/init',  id: auction.id, 
+                    detail: false %>
+<% end %>

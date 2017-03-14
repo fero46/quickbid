@@ -1,0 +1,28 @@
+<div class="mini_wrapper">
+  <div class="address" style="float:left; margin-right:15px">
+    <h4><%= t('.your_adress') %></h4>
+    <%= order.name %> <%= order.lastname %> <br/>
+    <%= order.street %> <%= order.streetnumber %><br />
+    <%= order.zipcode %> <%= order.city %> <br /><br />
+  </div>
+  <div class="extrainfo" style="float:right;">
+    <% if order.order_variations.present? %> 
+      <h3>Bestell Informationen:</h3>
+      <br/>
+      <% for variation in order.order_variations %>
+
+      <%= I18n.t ("variation_group.#{variation.group_name}") %> : <%= variation.value %>
+        <br />
+      <% end %>
+    <% end %>
+    <h4><%= t('.your_notes') %></h4>
+    <p>
+      <% if order.note.present? %>
+        <%= order.note %>
+      <% else %>
+        <%= t('.no_notes') %>
+      <% end %>
+    </p>
+  </div>
+  <div class="clear"></div>
+</div>

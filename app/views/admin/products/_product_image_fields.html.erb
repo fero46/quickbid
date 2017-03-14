@@ -1,0 +1,10 @@
+<div class="group fields">
+  <%= image_tag f.object.image_url(:thumb) if f.object.image_url(:thumb)  %><br />
+  <%= f.file_field :image, :class => "file_field" %>
+  <%= link_to_remove_fields image_tag('delete.png'), 
+                            f, 
+                            :alt => "Lösch Produkt bild", 
+                            :title => "Lösch Produkt bild" %>
+
+  <%= f.hidden_field :image_cache %>
+</div>

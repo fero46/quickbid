@@ -1,0 +1,46 @@
+<%= form_for [:admin, auction_configuration], :html => {:class=> 'form'} do |f| %>
+  <% unless auction_configuration.try(:errors).try(:blank?) %>
+    <div class="flash">
+      <% auction_configuration.errors.full_messages.each do |msg| %>
+        <div class="message error"><p><%= msg %></p></div>
+      <% end %>
+    </div>
+  <% end %>
+   <div class="group"> 
+     <%= f.label :name, :class => "label" %>
+     <%= f.text_field :name, :class => "text_field" %>
+   </div>
+
+  <div class="control-group <%= auction_configuration.errors.has_key?(:day_in_week) ? "error": "" %>">
+    <%= f.label :day_in_week, :class => "label"%>
+      <div class="controls">
+        <%= f.select :day_in_week, AuctionConfiguration.day_in_weeks,  {:include_blank => true},  :class => 'tooltips pricefield' , :rel => 'tooltip', :title => 'Bitte wähle die Kategorie aus.' , 'data-placement' => 'right' %> 
+        <% unless auction_configuration.errors.has_key?(:day_in_week)%>
+          <span class="help-inline"><%= auction_configuration.errors[:day_in_week].join(", ")%></span>
+        <% end %>
+      </div>      
+  </div>
+  <div class="control-group <%= auction_configuration.errors.has_key?(:day_part) ? "error": "" %>">
+    <%= f.label :day_part, :class => "label"%>
+      <div class="controls">
+        <%= f.select :day_part, AuctionConfiguration.day_parts,  {:include_blank => true},  :class => 'tooltips pricefield' , :rel => 'tooltip', :title => 'Bitte wähle die Kategorie aus.' , 'data-placement' => 'right' %> 
+        <% unless auction_configuration.errors.has_key?(:day_part)%>
+          <span class="help-inline"><%= auction_configuration.errors[:day_part].join(", ")%></span>
+        <% end %>
+      </div>      
+  </div>
+    <div class="group"> 
+</div>
+    <div class="group navform wat-cf">
+      <button class="button">
+        <%= image_tag 'web-app-theme/icons/tick.png'%>
+        Auktionskonfiguration 
+        <% if auction_configuration.new_record? %>
+          erstellen
+        <% else %>
+          bearbeiten
+        <% end%>
+    </button>
+</div>
+
+<% end %>

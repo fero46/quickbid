@@ -1,0 +1,44 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bourbon";
+.intro{
+  background: white;
+  .inner{
+    width: 1016px;
+    height: 531px;
+    background-image: url("/assets/intro.jpg");
+    margin: 0px auto;
+    position:relative;
+    .info_box{
+      position: absolute;
+      top: 125px;
+      right: 78px;
+      width: 370px;
+      h1{
+        font-weight: 300;
+        font-size:34px;
+        margin-bottom: 20px;
+      }
+      h2{
+        font-weight: 100;
+        font-size: 14px;
+        width: 178px;
+        margin-bottom: 30px;
+      }
+      a{
+        background-color :#e86566;
+        display:block;
+        padding:5px 15px;
+        @include border-top-radius(5px);
+        @include border-bottom-radius(5px);
+        @include border-left-radius(5px);
+        @include border-right-radius(5px);
+        color:white;
+        width: 110px;
+        text-align: center;
+        font-weight: 100;
+      }
+    }
+  }
+}

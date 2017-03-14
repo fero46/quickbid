@@ -1,0 +1,16 @@
+<div class="preview <%= 'last' if next_auction_counter == 4 %>">
+  <%= image_tag next_auction.try(:product).try(:main_image).smaller  %>
+  <div class="information">
+      <span>
+        <%= link_to(next_auction.try(:product).try(:brand), 
+                    auction_path(next_auction)) %>
+      </span>
+      <span>
+        <%= link_to(truncate(next_auction.try(:product).try(:short_description), :length => 18), 
+                    auction_path(next_auction)) %>
+      </span>
+  </div>
+  <div class="starttime">
+    <%= l next_auction.start, format: :short %>
+  </div>
+</div>

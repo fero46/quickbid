@@ -1,0 +1,84 @@
+@import "color";
+.form{
+  .flash{
+    h3{
+      color: darken($light_red, 10%);
+      margin-bottom: 20px;
+    }
+    .error{
+      padding:10px 15px;
+      color:white;
+      background-color: $light_red;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+  }
+  #error_explanation{
+    h2{
+      color: darken($light_red, 10%);
+      margin-bottom: 20px;
+    }
+    ul{
+      list-style: none;
+      li{
+        padding:10px 15px;
+        color:white;
+        background-color: $light_red;
+        margin-bottom: 10px;
+        font-weight: normal;
+      }
+    }
+  }
+  label{
+    color: darken($light_grey, 60%);
+    display:block;
+    font-size:14px;
+    width:100%;
+    margin-bottom:5px;
+  }
+  input, textarea{
+    color: darken($light_grey, 60%);
+    border: 1px solid darken($light_grey, 10%);
+    font-size: 14px;
+    padding: 4px;
+    display:block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  input.checkbox {
+    width: 25px;
+    float:left;
+    margin-top:4px;
+  }
+  .field_with_errors{
+    input, textarea, select{
+      border: 1px solid $light_red;      
+    }
+  }
+
+  .select_wrapper{
+    .field_with_errors{
+      float:left;
+    }
+    label{
+      float:left;
+      margin-right: 10px;
+      display: inline;
+      width: auto;
+    }
+  }
+
+  button{
+    cursor: pointer;
+    background:$light_grey;
+    border: 1px solid darken($light_grey, 10%);
+    padding: 10px 15px;
+    @include border-top-radius(10px);
+    @include border-bottom-radius(10px);
+    @include border-left-radius(10px);
+    @include border-right-radius(10px);
+    &:active{
+      background:darken($light_grey, 10%);
+    }
+  }
+}

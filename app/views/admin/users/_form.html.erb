@@ -1,0 +1,26 @@
+<%= form_for [:admin, user], :html => {:class=> 'form'} do |f| %>
+  <% unless user.try(:errors).try(:blank?) %>
+    <div class="flash">
+      <% user.errors.full_messages.each do |msg| %>
+        <div class="message error"><p><%= msg %></p></div>
+      <% end %>
+    </div>
+  <% end %>
+   <div class="group"> 
+     <%= f.label :free_bids, :class => "label" %>
+     <%= f.text_field :free_bids, :class => "text_field" %>
+   </div>
+
+    <div class="group navform wat-cf">
+      <button class="button">
+        <%= image_tag 'web-app-theme/icons/tick.png'%>
+        Benutzer 
+        <% if user.new_record? %>
+          erstellen
+        <% else %>
+          aktualisieren
+        <% end%>
+    </button>
+</div>
+
+<% end %>

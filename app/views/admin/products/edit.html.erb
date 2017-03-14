@@ -1,0 +1,15 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active first"><%= link_to 'Alle Produkte', admin_products_path %></li>
+      <li class=""><%= link_to 'Neues Produkt erstellen', new_admin_product_path %></li>
+      <li class=""><%= link_to 'Produkt anzeigen', admin_product_path(@product) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Produkt bearbeiten</h2>
+    <div class="inner">
+      <%= render 'form', :product => @product %>
+    </div>
+  </div>
+</div>

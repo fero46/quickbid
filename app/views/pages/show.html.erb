@@ -1,0 +1,9 @@
+<div class="page">
+  <% unless @page.blank? %>
+    <h2><%= @page.try(:title) %></h2>
+    <%= @page.try(:body).html_safe %></h2>
+  <% else %>
+    <h2><%= t('.error_4040') %></h2>
+    <p><%= t('.description') %></p>
+  <% end %>
+</div>

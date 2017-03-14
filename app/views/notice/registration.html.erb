@@ -1,0 +1,8 @@
+<h2 class="big">Hallo <%= @user.try(:username) %>, nur noch ein Schritt</h2>
+<div class="notice_box">
+  Du hast soeben eine Mail
+  <% if @user %>
+  an <%= @user.try(:email) %>
+  <% end %>
+  zugeschickt bekommen. Bitte bestätige diese Mail, um dein Konto zu aktivieren. Falls du keine Mail erhalten hast, überprüfe bitte dein Spam Ordner oder wende dich an <%= link_to Settings.mailer_from, "mailto:#{Settings.mailer_from}", :class => 'link' %>
+</div>

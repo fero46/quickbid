@@ -1,0 +1,7 @@
+<ul class="wat-cf">
+  <li class="<%= current_navigation[:index] %> first"><%= link_to 'Auktionskonfiguration', admin_auction_configurations_path %></li>
+  <li class="<%= current_navigation[:new] %>"><%= link_to 'Neue Auktion Auktionskonfiguration', new_admin_auction_configuration_path %></li>
+  <% if current_navigation[:edit].present? %>
+    <li class="<%= current_navigation[:edit] %>"><a href="#">Auktion Bearbeiten</a></li>
+  <% end %>
+</ul>

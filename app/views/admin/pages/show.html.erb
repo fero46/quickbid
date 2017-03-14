@@ -1,0 +1,16 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to 'Alle Seiten', admin_pages_path %></li>
+      <li><%= link_to 'Neue Seite erstellen', new_admin_page_path %></li>
+      <li><%= link_to 'Diese Seite bearbeiten', edit_admin_page_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Seite <%= @page.try(:name) %></h2>
+    <div class="inner">
+      <h1><%= @page.try(:title) %></h1>
+      <%= @page.body.html_safe %>
+    </div>
+  </div>
+</div>

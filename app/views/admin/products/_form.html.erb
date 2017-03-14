@@ -1,0 +1,110 @@
+<%= form_for [:admin, product] , :html => {:class=> 'form', :multipart => true } do |f| %>
+  <% unless product.errors.blank? %>
+      <div class="flash">
+        <% product.errors.full_messages.each do |msg| %>
+          <div class="message error"><p><%= msg %></p></div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="control-group <%= product.errors.has_key?(:category_id) ? "error": "" %>">
+    <%= f.label :category_id, :class => "label"%>
+      <div class="controls">
+        <%= f.select :category_id, Category.child_nodes,  {:include_blank => true},  :class => 'tooltips pricefield' , :rel => 'tooltip', :title => 'Bitte wähle die Kategorie aus.' , 'data-placement' => 'right' %> 
+        <% unless product.errors.has_key?(:category_id)%>
+          <span class="help-inline"><%= product.errors[:category_id].join(", ")%></span>
+        <% end %>
+      </div>      
+  </div>
+    <div class="group"> 
+      <%= f.label :brand, :class => "label" %>
+      <%= f.text_field :brand, :class => "text_field" %>
+    </div>
+    <div class="group"> 
+      <%= f.label :short_description, :class => "label" %>
+      <%= f.text_field :short_description, :class => "text_field" %>
+    </div>
+    <div class="group"> 
+      <%= f.label :price, :class => "label" %>
+      <%= f.text_field :price, :class => "text_field", :value => number_to_currency(product.price) %>
+    </div>
+    <div class="group"> 
+      <%= f.label :shipment_price, :class => "label" %>
+      <%= f.text_field :shipment_price, :class => "text_field", :value => number_to_currency(product.shipment_price) %>
+    </div>
+    <div class="group"> 
+      <%= f.label :online_shop, :class => "label" %>
+      <%= f.text_field :online_shop, :class => "text_field" %>
+    </div>
+    <div class="group"> 
+      <%= f.label :shop_url, :class => "label" %>
+      <%= f.text_field :shop_url, :class => "text_field" %>
+    </div>
+    <div class="group">
+      <%= f.label :description, :class => "label" %>
+      <%= f.text_area :description, :class => "text_area tinymce", :rows => 40, :cols => 120 %>
+    </div>
+    <% if VariationGroup.all.count > 0 %>
+    <h2>Variationen</h2>
+      <div class="group"> 
+      <%= f.label :product_variations, :class => "label" %>
+      <div>
+        <%- unless product.product_variations.blank? %>
+          <%= f.fields_for :product_variations do |product_variation| %>
+            <%= render 'product_variation_fields', :f => product_variation %>
+          <% end %>
+        <% end %>
+        <div>
+        <%= link_to_add_fields  "Produktvariation hinzufügen", f, :product_variations,  :class => 'addstyle' %>
+      </div>
+      </div>
+    </div>
+    <% end %>
+    <h2>Bilder</h2>
+    <div class="group"> 
+      <%= f.label :product_images, :class => "label" %>
+      <div>
+        <%- unless product.product_images.blank? %>
+          <%= f.fields_for :product_images do |product_image| %>
+            <%= render 'product_image_fields', :f => product_image %>
+          <% end %>
+        <% end %>
+        <div>
+        <%= link_to_add_fields  "Produktbild hinzufügen", f, :product_images,  :class => 'addstyle' %>
+      </div>
+      </div>
+    </div>
+
+    <h2>Auktionskonfiguration</h2>
+    <div class="group"> 
+      <%= f.label :auction_configuration_memberships, :class => "label" %>
+      <div>
+        <%- unless product.auction_configuration_memberships.blank? %>
+          <%= f.fields_for :auction_configuration_memberships do |membership| %>
+            <%= render 'auction_configuration_membership_fields', :f => membership %>
+          <% end %>
+        <% end %>
+        <div>
+        <%= link_to_add_fields  "Auktionkonfiguration hinzufügen", f, :auction_configuration_memberships,  :class => 'addstyle' %>
+      </div>
+      </div>
+    </div>
+
+    <div class="group"> 
+      <%= f.label :activated, :class => "label" %>
+      <%= f.check_box :activated, :class => "check_box" %>
+    </div>
+
+    <div class="group navform wat-cf">
+      <button class="button">
+        <%= image_tag 'web-app-theme/icons/tick.png'%>
+        Produkt 
+        <% if product.new_record? %>
+          erstellen
+        <% else %>
+          bearbeiten
+        <% end%>
+    </button>
+  </div>
+<% end %>
+
+<%= tinymce %>

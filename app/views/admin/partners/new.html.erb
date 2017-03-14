@@ -1,0 +1,14 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to 'Alle Partner', admin_partners_path %></li>
+      <li class="active"><%= link_to 'Neuen Partner anlegen', new_admin_partner_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Neuen Partner</h2>
+    <div class="inner">
+      <%= render 'form', :partner => @partner %>  
+    </div>
+  </div>
+</div>

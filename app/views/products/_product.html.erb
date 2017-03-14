@@ -1,0 +1,4 @@
+<div class="preview">
+  <h3> <%= product.try(:title) %></h3>
+  <%= image_tag product.try(:image).try(:default) %>
+</div>

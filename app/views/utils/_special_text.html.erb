@@ -1,0 +1,7 @@
+<div class="special <%= Settings.page.configuraton.special_class %>">
+  <% if current_user %>
+    <%= link_to t('.invite_friends_now'), invite_user_path %>
+  <% else %>
+      <%= link_to t('.register_now'), new_user_registration_path %>
+  <% end %>
+</div>

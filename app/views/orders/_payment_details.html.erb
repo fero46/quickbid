@@ -1,0 +1,23 @@
+<h3>Auktionsdetails</h3>
+
+<div class="details" style="width:242px; margin:0px; padding:0px; float:left; border-bottom: 1px solid">
+  <table style="font-size:13px; width: 100%">
+    <tr>
+      <td>Gewonnen zum Preis</td>
+      <td><%= number_to_currency @auction.actual_value %></td>
+    </tr>
+    <tr>
+      <td>Versandkosten</td>
+      <td><%= number_to_currency @auction.shipment %></td>
+    </tr>
+  </table>
+</div>
+
+<div class="details" style="width:242px; margin:0px; padding:0px; float:left; margin-top: 5px">
+  <table style="font-size:13px; width: 100%; font-weight: bold">
+    <tr style="border-top: 1px solid black">
+      <td>Zu zahlender Betrag</td>
+      <td><%= number_to_currency @auction.total %></td>
+    </tr>
+  </table>
+</div>
